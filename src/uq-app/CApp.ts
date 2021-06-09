@@ -7,13 +7,17 @@ import { VMain } from "./VMain";
 import { CTester } from "./test-uqui";
 import { setUI } from "./uqs";
 
-const gaps = [10, 3,3,3,3,3,5,5,5,5,5,5,5,5,10,10,10,10,15,15,15,30,30,60];
+import { CUser } from "./user";
+
+const gaps = [10, 3, 3, 3, 3, 3, 5, 5, 5, 5, 5, 5, 5, 5, 10, 10, 10, 10, 15, 15, 15, 30, 30, 60];
 
 export class CApp extends CUqApp {
 	cHome: CHome;
 	cBug: CBug;
 	cMe: CMe;
 	cUI: CTester;
+
+	cUser: CUser;
 
 	protected async internalStart(isUserLogin: boolean) {
 		this.setRes(res);
@@ -22,7 +26,10 @@ export class CApp extends CUqApp {
 		this.cBug = this.newC(CBug);
 		this.cMe = this.newC(CMe);
 		this.cUI = this.newC(CTester) as CTester;
+
+		this.cUser = this.newC(CUser);
 		this.cHome.load();
+
 		this.openVPage(VMain, undefined, this.dispose);
 		// 加上下面一句，可以实现主动页面刷新
 		// this.timer = setInterval(this.callTick, 1000);
@@ -30,7 +37,7 @@ export class CApp extends CUqApp {
 		// TUID [$User] ID (member) SET poke=1;
 	}
 
-	private timer:any;
+	private timer: any;
 	protected onDispose() {
 		clearInterval(this.timer);
 		this.timer = undefined;
@@ -42,7 +49,7 @@ export class CApp extends CUqApp {
 		try {
 			if (!this.user) return;
 			++this.tick;
-			if (this.tick<gaps[this.gapIndex]) return;
+			if (this.tick < gaps[this.gapIndex]) return;
 			//console.error('tick ', new Date());
 			this.tick = 0;
 			if (this.gapIndex < gaps.length - 1) ++this.gapIndex;

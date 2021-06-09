@@ -5,6 +5,10 @@ const bz: DevConfig = {
 	name: 'bizdev',
 	alias: 'bz',
 }
+const jk: DevConfig = {
+	name: '百灵威系统工程部',
+	alias: 'jk',
+}
 
 export const appConfig: AppConfig = {
 	version: '0.1.0',
@@ -14,11 +18,60 @@ export const appConfig: AppConfig = {
 			dev: bz,
 			name: 'hello-tonva',
 			alias: 'HelloTonva',
+		},
+		{
+			dev: jk,
+			name: 'common',
+			version: '0.1.0',
+		},
+		{
+			dev: jk,
+			name: 'customer',
+			version: '0.1.0',
+		},
+		{
+			dev: jk,
+			name: 'webuser',
+			version: '0.1.0',
+		},
+		{
+			dev: jk,
+			name: 'warehouse',
+			version: '0.1.0',
+		},
+		{
+			dev: jk,
+			name: 'hr',
+			version: '0.1.0',
+		},
+		{
+			dev: jk,
+			name: 'product',
+			version: '0.1.0',
+		},
+		{
+			dev: jk,
+			name: 'vipcardtype',
+			version: '0.1.0',
+		},
+		{
+			dev: jk,
+			name: 'chemical',
+			version: '0.1.0',
+		},
+		{
+			dev: jk,
+			name: 'chemicalsecurity',
+			version: '0.1.0',
+		},
+		{
+			dev: jk,
+			name: 'platformjoint',
 			version: '0.1.0',
 		},
 	],
 	noUnit: true,
-    tvs: {},
+	tvs: {},
 	oem: undefined,
 	htmlTitle: 'hello-tonva',
 };
