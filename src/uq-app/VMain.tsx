@@ -4,32 +4,32 @@ import { CApp } from './CApp';
 
 const color = (selected: boolean) => selected === true ? 'text-primary' : 'text-muted';
 function caption(label: string | JSX.Element, icon: string) {
-	return (selected: boolean) => TabCaptionComponent(label, icon, color(selected));
+    return (selected: boolean) => TabCaptionComponent(label, icon, color(selected));
 }
 
 export class VMain extends VPage<CApp> {
-	protected get tabsProps(): TabsProps {
-		let { cHome, cBug, cMe, cUI, cUser } = this.controller;
-		let tabs: TabProp[] = [
-			{ name: 'home', caption: caption(t('home'), 'home'), content: cHome.tab },
-			{ name: 'user', caption: caption(t('user'), 'user'), content: cUser.tab },
-			{ name: 'me', caption: caption(t('me'), 'user-o'), content: cMe.tab, load: cMe.load },
-		];
-		if (this.isDev === true) {
-			tabs.push({
-				name: 'UI', caption: caption(t('UI'), 'television'), content: cUI.tab
-			});
-			tabs.push({
-				name: 'debug', caption: caption(t('debug'), 'bug'), content: cBug.tab, onShown: cBug.load
-			});
-		}
-		return { tabs };
-	}
+    protected get tabsProps(): TabsProps {
+        let { cHome, cBug, cMe, cUI, cUser } = this.controller;
+        let tabs: TabProp[] = [
+            { name: 'home', caption: caption(t('home'), 'home'), content: cHome.tab },
+            { name: 'user', caption: caption(t('user'), 'user'), content: cUser.tab },
+            { name: 'me', caption: caption(t('me'), 'user-o'), content: cMe.tab, load: cMe.load },
+        ];
+        if (this.isDev === true) {
+            tabs.push({
+                name: 'UI', caption: caption(t('UI'), 'television'), content: cUI.tab
+            });
+            tabs.push({
+                name: 'debug', caption: caption(t('debug'), 'bug'), content: cBug.tab, onShown: cBug.load
+            });
+        }
+        return { tabs };
+    }
 
-	protected get webNav(): PageWebNav {
-		return {
-			navHeader: <div>webNav header</div>,
-			navFooter: <div>webNav footer</div>,
-		};
-	}
+    protected get webNav(): PageWebNav {
+        return {
+            navHeader: <div>webNav header</div>,
+            navFooter: <div>webNav footer</div>,
+        };
+    }
 }

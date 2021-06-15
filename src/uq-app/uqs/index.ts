@@ -1,4 +1,4 @@
-//=== UqApp builder created on Wed Jun 09 2021 19:02:07 GMT+0800 (China Standard Time) ===//
+//=== UqApp builder created on Tue Jun 15 2021 17:12:09 GMT+0800 (China Standard Time) ===//
 import * as BzHelloTonva from './BzHelloTonva';
 import * as JkCommon from './JkCommon';
 import * as JkCustomer from './JkCustomer';
