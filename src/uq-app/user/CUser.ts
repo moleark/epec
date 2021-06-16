@@ -38,7 +38,10 @@ export class CUser extends CUqBase {
         body.append("username", username);
         let result = await fetch(GLOABLE.EPEC.INTERFACEUSERINFO, {
             method: "POST",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            headers: {
+                "Accept": "application/x-www-form-urlencoded",
+                "Content-Type": "application/json"
+            },
             body: body
         });
         if (result.ok) {
