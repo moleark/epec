@@ -11,8 +11,8 @@ export class VMain extends VPage<CApp> {
     protected get tabsProps(): TabsProps {
         let { cHome, cBug, cMe, cUI, cUser } = this.controller;
         let tabs: TabProp[] = [
-            { name: 'home', caption: caption(t('home'), 'home'), content: cHome.tab },
-            { name: 'user', caption: caption(t('user'), 'user'), content: cUser.tab },
+            // { name: 'home', caption: caption(t('home'), 'home'), content: cHome.tab },
+            { name: '药物所/中山院', caption: caption(t('药物所/中山院'), 'user'), content: cUser.tab },
             { name: 'me', caption: caption(t('me'), 'user-o'), content: cMe.tab, load: cMe.load },
         ];
         if (this.isDev === true) {

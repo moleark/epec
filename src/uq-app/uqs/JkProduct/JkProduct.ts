@@ -1,4 +1,4 @@
-//=== UqApp builder created on Tue Jun 15 2021 17:12:09 GMT+0800 (China Standard Time) ===//
+//=== UqApp builder created on Wed Jun 16 2021 17:44:33 GMT+0800 (中国标准时间) ===//
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { IDXValue, Uq, UqTuid, UqAction, UqQuery, UqMap, UqHistory, UqID } from "tonva-react";
 
@@ -230,7 +230,6 @@ interface ReturnGetPackRet {
 	product: number;
 	pack: number;
 	jkcat: string;
-	$id: number;
 }
 interface ResultGetPack {
 	ret: ReturnGetPackRet[];
@@ -351,7 +350,6 @@ interface ReturnGetProductPricesRet {
 	expireDate: any;
 	discountinued: number;
 	salesLevel: number;
-	$id: number;
 }
 interface ResultGetProductPrices {
 	ret: ReturnGetProductPricesRet[];
@@ -374,7 +372,7 @@ interface ResultProductSearchHistory {
 
 export interface $PiecewiseDetail {
 	id?: number;
-	parent: number;
+	main: number;
 	row?: number;
 	sec: number;
 	value: number;
@@ -444,6 +442,8 @@ export interface UqExt extends Uq {
 	ProductCategoryLeafCache: UqMap;
 	COA: UqMap;
 	ProductExtention: UqMap;
+	ProductDeliveryTime: UqMap;
+	ProductEmbargo: UqMap;
 	ProductSearchHistory: UqHistory<ParamProductSearchHistory, ResultProductSearchHistory>;
 	$PiecewiseDetail: UqID<any>;
 	$Piecewise: UqID<any>;

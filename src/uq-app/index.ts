@@ -1,4 +1,4 @@
-//=== UqApp builder created on Tue Jun 15 2021 17:12:02 GMT+0800 (China Standard Time) ===//
+//=== UqApp builder created on Wed Jun 16 2021 17:44:26 GMT+0800 (中国标准时间) ===//
 export { CUqApp, CUqBase, CUqSub } from './CBase';
 export { CApp } from './CApp';
 export * from './uqs';

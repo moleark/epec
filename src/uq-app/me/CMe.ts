@@ -20,7 +20,7 @@ export class CMe extends CUqBase {
 	roles: string[] = null;
 	//uq: Uq;
 
-	constructor(res:any) {
+	constructor(res: any) {
 		super(res);
 		makeObservable(this, {
 			roles: observable,
@@ -28,7 +28,7 @@ export class CMe extends CUqBase {
 		//this.uq = this.uqs.BzTimesChange;
 	}
 
-    protected async internalStart() {
+	protected async internalStart() {
 	}
 
 	tab = () => {
@@ -50,7 +50,7 @@ export class CMe extends CUqBase {
 		//await cRoles.start();
 	}
 
-	private myRolesChanged = (roles:string[]) => {
+	private myRolesChanged = (roles: string[]) => {
 		//this.roles = roles;
 		//this.user.roles[this.uq.$.name] = roles;
 		//nav.saveLocalUser();

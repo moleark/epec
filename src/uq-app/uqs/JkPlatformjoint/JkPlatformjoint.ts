@@ -1,4 +1,4 @@
-//=== UqApp builder created on Tue Jun 15 2021 17:12:09 GMT+0800 (China Standard Time) ===//
+//=== UqApp builder created on Wed Jun 16 2021 17:44:33 GMT+0800 (中国标准时间) ===//
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { IDXValue, Uq, UqTuid, UqAction, UqQuery, UqMap, UqHistory, UqPending, UqID } from "tonva-react";
 
@@ -311,6 +311,20 @@ export interface ResultSearchEpecUser {
     $page: ReturnSearchEpecUser$page[];
 }
 
+export interface ParamSearchNeoTridentUser {
+    key: string;
+}
+export interface ReturnSearchNeoTridentUser$page {
+    webUser: number;
+    username: string;
+    organization: string;
+    team: string;
+    $id: number;
+}
+export interface ResultSearchNeoTridentUser {
+    $page: ReturnSearchNeoTridentUser$page[];
+}
+
 export interface ParamPlatformCustomerAuditRefuseHistory {
     platformCustomer: number;
     reason: string;
@@ -399,6 +413,7 @@ export interface UqExt extends Uq {
     GetNewOrderItemId: UqQuery<ParamGetNewOrderItemId, ResultGetNewOrderItemId>;
     GetNewOrderId: UqQuery<ParamGetNewOrderId, ResultGetNewOrderId>;
     SearchEpecUser: UqQuery<ParamSearchEpecUser, ResultSearchEpecUser>;
+    SearchNeoTridentUser: UqQuery<ParamSearchNeoTridentUser, ResultSearchNeoTridentUser>;
     AccessToken: UqMap;
     JDCityMapping: UqMap;
     JDProvinceMapping: UqMap;
