@@ -33,9 +33,7 @@ export class CUser extends CUqBase {
     }
 
     searchNeotrident = async (username: string) => {
-        let body = new URLSearchParams();
-        body.append("key", "338A8BC07BF54B88B41F90AAD2F1240A");
-        body.append("username", username);
+        let body = JSON.stringify({ "username": username });
         let result = await fetch(GLOABLE.EPEC.INTERFACEUSERINFO, {
             method: "POST",
             headers: {
@@ -52,13 +50,13 @@ export class CUser extends CUqBase {
     }
 
     submitCreateUser = async (param: any) => {
-        let body = new URLSearchParams();
-        for (let key in param) {
-            body.append(key, param[key]);
-        };
+        let body = JSON.stringify(param);
         let result = await fetch(GLOABLE.EPEC.REGISTER, {
             method: "POST",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            headers: {
+                "Accept": "application/x-www-form-urlencoded",
+                "Content-Type": "application/json"
+            },
             body: body
         });
         if (!result.ok) return;

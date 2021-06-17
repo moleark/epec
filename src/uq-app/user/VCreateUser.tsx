@@ -82,7 +82,7 @@ export class VCreateUser extends VPage<CUser>{
             };
             return <div className="p-2">
                 <LMR right={<button onClick={this.searchNeotrident} className="btn btn-primary" type="button">查询</button>}>
-                    <input ref={(v) => this.searchUsernameInput = v} placeholder="请输出用户名" type="text" className="form-control" />
+                    <input ref={(v) => this.searchUsernameInput = v} placeholder="请输入用户名" type="text" className="form-control" />
                 </LMR>
                 {autoHideTips(this.searchUsernameTip, <div className="text-danger" role="alert"> {this.searchUsernameTip.get()}</div>)}
                 {selectOrganiza}
@@ -92,13 +92,17 @@ export class VCreateUser extends VPage<CUser>{
 
     searchNeotrident = async () => {
         if (!this.searchUsernameInput?.value) {
-            this.searchUsernameTip.set("*请输出用户名"); return;
+            this.searchUsernameTip.set("*请输入用户名"); return;
         };
         let { searchNeotrident } = this.controller;
         let value: string = this.searchUsernameInput.value;
         this.userInfoByKey = await searchNeotrident(value.trim());
         if (!this.userInfoByKey) {
             this.searchUsernameTip.set("用户名不存在或输入有误");
+        } else {
+            if (!this.userInfoByKey.success) {
+                this.searchUsernameTip.set("请稍后再试");
+            };
         };
     };
 
