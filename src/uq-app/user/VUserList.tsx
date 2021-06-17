@@ -2,7 +2,7 @@ import { FA, List, tv, VPage } from "tonva-react";
 import { ReturnSearchEpecUser$page, ReturnSearchNeoTridentUser$page } from "uq-app/uqs/JkPlatformjoint";
 import { CUser } from ".";
 
-const NeoTridentOrganization: { [organization: string]: string } = {
+export const NeoTridentOrganization: { [organization: string]: string } = {
     "1":"中国科学院上海药物研究所",
     "5":"中国科学院药物创新研究院中山研究院",
 }

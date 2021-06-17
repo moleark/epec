@@ -1,8 +1,9 @@
 import * as React from 'react';
 import { makeObservable, observable } from "mobx";
 import { observer } from 'mobx-react';
-import { VPage, LMR, autoHideTips, Form, Schema, UiSchema, UiInputItem, UiSelect, Context } from 'tonva-react';
+import { VPage, LMR, autoHideTips, Form, Schema, UiSchema, UiInputItem, UiSelect, Context, UiRadio } from 'tonva-react';
 import { CUser } from ".";
+import { NeoTridentOrganization } from './VUserList';
 
 const noUserMessage: { [id: string]: string } = {
     "-1": "id与name不匹配",
@@ -11,8 +12,14 @@ const noUserMessage: { [id: string]: string } = {
     "-4": "微信已被使用",
 };
 
+const Salutations: { [gender: string]: string } = {
+    "1": "先生",
+    "0": "女士",
+};
+
 const schema: Schema = [
     { name: 'USERNAME', type: 'string', required: false },
+    { name: 'gender', type: 'string', required: false },
     { name: 'USERCODE', type: 'string', required: true },
     { name: 'USEREMAIL', type: 'id', required: true },
     { name: 'password', type: 'string', required: true },
@@ -22,7 +29,8 @@ const schema: Schema = [
 
 const uiSchema: UiSchema = {
     items: {
-        USERNAME: { widget: 'text', label: '用户', disabled: true } as UiInputItem,
+        USERNAME: { widget: 'text', label: '用户' } as UiInputItem,
+        gender: { widget: 'radio', label: '性别', list: [{ value: '1', title: '男' }, { value: '0', title: '女' }] } as UiRadio,
         USERCODE: { widget: 'text', label: '用户名', disabled: true } as UiInputItem,
         USEREMAIL: { widget: 'text', label: '邮箱', disabled: true } as UiInputItem,
         password: { widget: 'text', label: '密码', defaultValue:"123456" } as UiInputItem,
@@ -109,11 +117,11 @@ export class VCreateUser extends VPage<CUser>{
     private onFormButtonClick = async (name: string, context: Context) => {
         let { form } = context;
         let { data } = form;
-        let { mobile, organization, password } = data;
+        let { USERNAME, mobile, organization, password, gender } = data;
         if (!organization) {
             this.createUserTip.set("请选择单位"); return;
         };
-        let { submitCreateUser, addNeoTridentUser } = this.controller;
+        let { submitCreateUser, addWebUser, addNeoTridentUser } = this.controller;
         let { USERCODE, USEREMAIL } = this.userInfoByKey;
         let param: any = {
             $type: "$user",
@@ -125,6 +133,15 @@ export class VCreateUser extends VPage<CUser>{
         let res = await submitCreateUser(param);
         if (res !== undefined) {
             if (res >= 0) {
+                await addWebUser({id: res,
+                    webUser: {
+                        firstName: USERNAME,
+                        gender: gender,
+                        salutation: Salutations[String(gender)],
+                        organizationName: NeoTridentOrganization[String(organization)],
+                        departmentName: "-",
+                    }
+                });
                 await addNeoTridentUser({ ...this.userInfoByKey, id: res, organization: organization, password: password });
                 this.createUserTip.set("注册成功");
                 setTimeout(() => this.closePage(), 3000);

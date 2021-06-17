@@ -63,6 +63,11 @@ export class CUser extends CUqBase {
         return await result.json();
     };
 
+    addWebUser = async (param: any) => {
+        let { id, webUser } = param;
+        await this.uqs.JkWebuser.WebUser.save(id, webUser);
+    }
+
     addNeoTridentUser = async (param: any) => {
         let { id, organization, password, USERID, USERCODE, MD5ID } = param;
         await this.uqs.JkPlatformjoint.NeoTridentUser.add({
