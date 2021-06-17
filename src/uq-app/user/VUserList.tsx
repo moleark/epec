@@ -35,12 +35,13 @@ export class VUserList extends VPage<CUser> {
         let { webUser, username, organization } = item;
         let organizationName = NeoTridentOrganization[organization] || "";
         return <div className="px-2 py-3 flex-wrap">
-            <div className="col-12 col-lg-6">用户名：{username}</div>
-            {organizationName && <div className="col-12 col-lg-6">单位：{organizationName}</div>}
+            <div className="col-12 col-lg-6"><b>{username}</b></div>
+            {organizationName && <div className="col-12 col-lg-6 sma">{organizationName}</div>}
             <div className="col-12 col-lg-6">{tv(webUser, (v: any) => {
                 if (!v) return <></>;
                 return <div>
-                    <div>{v?.firstName} &nbsp;&nbsp;&nbsp;&nbsp; {v?.departmentName }</div>
+                    <div><span className="font-weight-bolder">{v?.firstName}</span> &nbsp;&nbsp;&nbsp;&nbsp;
+                        <small>{v?.departmentName}</small></div>
                 </div>
             })}</div>
         </div>

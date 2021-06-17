@@ -65,7 +65,7 @@ export class VCreateUser extends VPage<CUser>{
 		});
 	}
 
-    header() { return 'create' };
+    header() { return '用户注册' };
 
     footer() {
         return React.createElement(observer(() => {
