@@ -73,5 +73,5 @@ export const appConfig: AppConfig = {
 	noUnit: true,
 	tvs: {},
 	oem: undefined,
-	htmlTitle: 'hello-tonva',
+	htmlTitle: '第三方客户管理系统',
 };
