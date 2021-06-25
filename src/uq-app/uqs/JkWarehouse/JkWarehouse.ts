@@ -1,6 +1,6 @@
-//=== UqApp builder created on Wed Jun 16 2021 17:44:33 GMT+0800 (中国标准时间) ===//
+//=== UqApp builder created on Thu Jun 24 2021 14:48:28 GMT+0800 (中国标准时间) ===//
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { IDXValue, Uq, UqTuid, UqAction, UqBook, UqQuery, UqMap, UqHistory, UqPending, UqID } from "tonva-react";
+import { IDXValue, Uq, UqTuid, UqAction, UqBook, UqQuery, UqMap, UqHistory, UqPending, UqID, UqIDX, UqIX } from "tonva-react";
 
 
 //===============================
@@ -125,7 +125,6 @@ export interface TuidShelfBlock {
 	no: string;
 	code: string;
 	shelfLayer: number;
-	isValid: number;
 }
 
 export interface TuidStorageCondition {
@@ -173,6 +172,31 @@ interface ReturnOutBoundCutRet {
 }
 interface ResultOutBoundCut {
 	ret: ReturnOutBoundCutRet[];
+}
+
+export interface ParamPick {
+	warehouse: number;
+	pickupMaxRows: number;
+}
+interface ReturnPickPickups {
+	id: number;
+	no: string;
+	$id: number;
+}
+interface ReturnPickDelivers {
+	id: number;
+	no: string;
+	$id: number;
+}
+interface ResultPick {
+	pickups: ReturnPickPickups[];
+	delivers: ReturnPickDelivers[];
+}
+
+export interface ParamTrySchedule {
+	p: number;
+}
+interface ResultTrySchedule {
 }
 
 export interface ParamGetInventoryAllocation {
@@ -540,8 +564,7 @@ interface ResultTransportTracking {
 
 export interface $PiecewiseDetail {
 	id?: number;
-	parent: number;
-	row?: number;
+	main: number;
 	sec: number;
 	value: number;
 }
@@ -554,9 +577,143 @@ export interface $Piecewise {
 	asc: number;
 }
 
+export interface StorePoint {
+	id?: number;
+	warehouse: number;
+	room: number;
+	x: number;
+	y: number;
+	z: number;
+}
+
+export interface Item {
+	id?: number;
+}
+
+export interface Section {
+	id?: number;
+	parent: number;
+	name: string;
+	warehouse: number;
+}
+
+export interface OrderMain {
+	id?: number;
+	no?: string;
+}
+
+export interface Pickup {
+	id?: number;
+	no?: string;
+	warehouse: number;
+	picker: number;
+	startTime: any;
+	finishTime: any;
+	$owner?: number;
+	$create?: any;
+}
+
+export interface OrderDetail {
+	id?: number;
+	main: number;
+	item: number;
+	product: number;
+	quantity: number;
+	warehouse: number;
+}
+
+export interface WarehouseN {
+	id?: number;
+}
+
+export interface PickupDetail {
+	id?: number;
+	main: number;
+	orderDetail: number;
+	quantity: number;
+}
+
+export interface ItemResearch {
+	id?: number;
+}
+
+export interface ItemProductPack {
+	id?: number;
+	product: number;
+	pack: number;
+}
+
+export interface ItemProductPackLot {
+	id?: number;
+	product: number;
+	pack: number;
+	lot: string;
+}
+
+export interface DxPicking {
+	id: number;
+	$act?: number;
+}
+
+export interface OrderDetailX {
+	id: number;
+	needInsuredWhenDelivery?: number;
+	$act?: number;
+}
+
+export interface ActParamDxPicking {
+	id: number|IDXValue;
+	$act?: number;
+}
+
+export interface ActParamOrderDetailX {
+	id: number|IDXValue;
+	needInsuredWhenDelivery?: number|IDXValue;
+	$act?: number;
+}
+
+export interface WarehouseSection {
+	ix: number;
+	xi: number;
+}
+
+export interface ItemStore {
+	ixx: number;
+	ix: number;
+	xi: number;
+	quantity: number;
+}
+
+export interface IxUserWarehouse {
+	ix: number;
+	xi: number;
+}
+
+export interface IxPendingPickup {
+	ix: number;
+	xi: number;
+}
+
 export interface ParamActs {
 	$PiecewiseDetail?: $PiecewiseDetail[];
 	$Piecewise?: $Piecewise[];
+	storePoint?: StorePoint[];
+	item?: Item[];
+	section?: Section[];
+	orderMain?: OrderMain[];
+	pickup?: Pickup[];
+	orderDetail?: OrderDetail[];
+	warehouseN?: WarehouseN[];
+	pickupDetail?: PickupDetail[];
+	itemResearch?: ItemResearch[];
+	itemProductPack?: ItemProductPack[];
+	itemProductPackLot?: ItemProductPackLot[];
+	dxPicking?: ActParamDxPicking[];
+	orderDetailX?: ActParamOrderDetailX[];
+	warehouseSection?: WarehouseSection[];
+	itemStore?: ItemStore[];
+	ixUserWarehouse?: IxUserWarehouse[];
+	ixPendingPickup?: IxPendingPickup[];
 }
 
 
@@ -587,6 +744,8 @@ export interface UqExt extends Uq {
 	OutInBoundReason: UqTuid<TuidOutInBoundReason>;
 	WebUser: UqTuid<TuidWebUser>;
 	OutBoundCut: UqAction<ParamOutBoundCut, ResultOutBoundCut>;
+	Pick: UqAction<ParamPick, ResultPick>;
+	TrySchedule: UqAction<ParamTrySchedule, ResultTrySchedule>;
 	ProductInventory: UqBook<ParamProductInventory, ResultProductInventory>;
 	ShelfBlockInventory: UqBook<ParamShelfBlockInventory, ResultShelfBlockInventory>;
 	ShelfBlockLotInventory: UqBook<ParamShelfBlockLotInventory, ResultShelfBlockLotInventory>;
@@ -615,4 +774,21 @@ export interface UqExt extends Uq {
 	OutBoundHandoverTask: UqPending<any, any>;
 	$PiecewiseDetail: UqID<any>;
 	$Piecewise: UqID<any>;
+	StorePoint: UqID<any>;
+	Item: UqID<any>;
+	Section: UqID<any>;
+	OrderMain: UqID<any>;
+	Pickup: UqID<any>;
+	OrderDetail: UqID<any>;
+	WarehouseN: UqID<any>;
+	PickupDetail: UqID<any>;
+	ItemResearch: UqID<any>;
+	ItemProductPack: UqID<any>;
+	ItemProductPackLot: UqID<any>;
+	DxPicking: UqIDX<any>;
+	OrderDetailX: UqIDX<any>;
+	WarehouseSection: UqIX<any>;
+	ItemStore: UqIX<any>;
+	IxUserWarehouse: UqIX<any>;
+	IxPendingPickup: UqIX<any>;
 }

@@ -45,11 +45,17 @@ export class VMe extends VPage<CMe> {
                     type: 'component',
                     component: <this.meInfo />
                 },
+                '',
+                {
+                    type: 'component',
+                    component: <IconText iconClass="text-info mr-2" icon="list" text="中石化单位" />,
+                    onClick: this.controller.openEpecOrganization
+                },
             ]
             rows.push(...aboutRows, ...logOutRows);
         }
         return <PropGrid rows={[...rows]} values={{}} />;
-	}
+    }
 
 	private meInfo = observer(() => {
         let { user } = nav;

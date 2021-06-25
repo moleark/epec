@@ -1,4 +1,4 @@
-//=== UqApp builder created on Wed Jun 16 2021 17:44:33 GMT+0800 (中国标准时间) ===//
+//=== UqApp builder created on Thu Jun 24 2021 14:48:28 GMT+0800 (中国标准时间) ===//
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { IDXValue, Uq, UqTuid, UqAction, UqQuery, UqMap, UqHistory, UqID } from "tonva-react";
 
@@ -333,6 +333,7 @@ export interface ParamGetProductPackByOrigin {
 interface ReturnGetProductPackByOriginRet {
 	product: number;
 	pack: number;
+	$id: number;
 }
 interface ResultGetProductPackByOrigin {
 	ret: ReturnGetProductPackByOriginRet[];

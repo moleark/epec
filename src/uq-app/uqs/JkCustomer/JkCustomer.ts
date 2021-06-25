@@ -1,4 +1,4 @@
-//=== UqApp builder created on Wed Jun 16 2021 17:44:33 GMT+0800 (中国标准时间) ===//
+//=== UqApp builder created on Thu Jun 24 2021 14:48:28 GMT+0800 (中国标准时间) ===//
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { IDXValue, Uq, UqTuid, UqQuery, UqMap, UqID } from "tonva-react";
 
@@ -263,16 +263,14 @@ interface Result$poked {
 export interface $Piecewise {
 	id?: number;
 	name: string;
-	mul: number;
-	div: number;
+	ratio: number;
 	offset: number;
 	asc: number;
 }
 
 export interface $PiecewiseDetail {
 	id?: number;
-	parent: number;
-	row?: number;
+	main: number;
 	sec: number;
 	value: number;
 }
@@ -328,6 +326,7 @@ export interface UqExt extends Uq {
 	CustomerDomain: UqMap;
 	CustomerRelatedProducts: UqMap;
 	ResearchDomain: UqMap;
+	OrganizationSetting: UqMap;
 	$Piecewise: UqID<any>;
 	$PiecewiseDetail: UqID<any>;
 }

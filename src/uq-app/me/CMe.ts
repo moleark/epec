@@ -55,4 +55,8 @@ export class CMe extends CUqBase {
 		//this.user.roles[this.uq.$.name] = roles;
 		//nav.saveLocalUser();
 	}
+
+	openEpecOrganization = async () => {
+		await this.cApp.cEpec.openEpecOrganization();
+	}
 }

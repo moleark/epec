@@ -5,14 +5,14 @@ import { VPage, LMR, autoHideTips, Form, Schema, UiSchema, UiInputItem, UiSelect
 import { CUser } from ".";
 import { NeoTridentOrganization } from './VUserList';
 
-const noUserMessage: { [id: string]: string } = {
+export const noUserMessage: { [id: string]: string } = {
     "-1": "id与name不匹配",
     "-2": "email已被使用",
     "-3": "手机号已被使用",
     "-4": "微信已被使用",
 };
 
-const Salutations: { [gender: string]: string } = {
+export const Salutations: { [gender: string]: string } = {
     "1": "先生",
     "0": "女士",
 };

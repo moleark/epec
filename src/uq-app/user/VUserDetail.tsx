@@ -1,4 +1,4 @@
-import { List, tv, VPage } from "tonva-react";
+import { VPage } from "tonva-react";
 import { ReturnSearchEpecUser$page } from "uq-app/uqs/JkPlatformjoint";
 import { CUser } from ".";
 

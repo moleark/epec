@@ -8,6 +8,7 @@ import { CTester } from "./test-uqui";
 import { setUI } from "./uqs";
 
 import { CUser } from "./user";
+import { CEpec } from './user/Epec/CEpec';
 
 const gaps = [10, 3, 3, 3, 3, 3, 5, 5, 5, 5, 5, 5, 5, 5, 10, 10, 10, 10, 15, 15, 15, 30, 30, 60];
 
@@ -18,6 +19,7 @@ export class CApp extends CUqApp {
     cUI: CTester;
 
     cUser: CUser;
+    cEpec: CEpec;
 
     protected async internalStart(isUserLogin: boolean) {
         this.setRes(res);
@@ -26,7 +28,7 @@ export class CApp extends CUqApp {
         this.cBug = this.newC(CBug);
         this.cMe = this.newC(CMe);
         this.cUI = this.newC(CTester) as CTester;
-
+        this.cEpec = this.newC(CEpec);
         this.cUser = this.newC(CUser);
         this.cHome.load();
 
