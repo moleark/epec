@@ -1,4 +1,4 @@
-//=== UqApp builder created on Thu Jun 24 2021 14:48:28 GMT+0800 (中国标准时间) ===//
+//=== UqApp builder created on Wed Jul 14 2021 11:24:56 GMT+0800 (中国标准时间) ===//
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { IDXValue, Uq, UqTuid, UqQuery, UqMap, UqID } from "tonva-react";
 
@@ -8,11 +8,13 @@ import { IDXValue, Uq, UqTuid, UqQuery, UqMap, UqID } from "tonva-react";
 //===============================
 
 export interface TuidCurrency {
+	id?: number;
 	name: string;
 	suffix: string;
 }
 
 export interface TuidContact {
+	id?: number;
 	name: string;
 	organizationName: string;
 	mobile: string;
@@ -23,6 +25,7 @@ export interface TuidContact {
 }
 
 export interface TuidCustomer {
+	id?: number;
 	name: string;
 	firstName: string;
 	lastName: string;
@@ -36,16 +39,19 @@ export interface TuidCustomer {
 }
 
 export interface TuidInvoiceType {
+	id?: number;
 	description: string;
 }
 
 export interface TuidResearch {
+	id?: number;
 	name: string;
 	no: string;
 	createTime: any;
 }
 
 export interface Tuid$sheet {
+	id?: number;
 	no: string;
 	user: number;
 	date: any;
@@ -60,6 +66,7 @@ export interface Tuid$sheet {
 }
 
 export interface Tuid$user {
+	id?: number;
 	name: string;
 	nick: string;
 	icon: string;
@@ -68,6 +75,7 @@ export interface Tuid$user {
 }
 
 export interface TuidProvince {
+	id?: number;
 	country: number;
 	englishName: string;
 	chineseName: string;
@@ -75,6 +83,7 @@ export interface TuidProvince {
 }
 
 export interface TuidDepartment {
+	id?: number;
 	name: string;
 	organization: number;
 	no: string;
@@ -82,6 +91,7 @@ export interface TuidDepartment {
 }
 
 export interface TuidBuyerAccount {
+	id?: number;
 	description: string;
 	organization: number;
 	xyz: string;
@@ -91,12 +101,14 @@ export interface TuidBuyerAccount {
 }
 
 export interface TuidOrganization {
+	id?: number;
 	name: string;
 	no: string;
 	createTime: any;
 }
 
 export interface TuidCountry {
+	id?: number;
 	code: string;
 	englishName: string;
 	chineseName: string;
@@ -104,6 +116,7 @@ export interface TuidCountry {
 }
 
 export interface TuidInvoiceInfo {
+	id?: number;
 	title: string;
 	taxNo: string;
 	address: string;
@@ -114,6 +127,7 @@ export interface TuidInvoiceInfo {
 }
 
 export interface TuidCity {
+	id?: number;
 	province: number;
 	englishName: string;
 	chineseName: string;
@@ -121,12 +135,14 @@ export interface TuidCity {
 }
 
 export interface TuidPost {
+	id?: number;
 	name: string;
 	no: string;
 	createTime: any;
 }
 
 export interface TuidCounty {
+	id?: number;
 	city: number;
 	englishName: string;
 	chineseName: string;
@@ -134,12 +150,14 @@ export interface TuidCounty {
 }
 
 export interface TuidSalesRegion {
+	id?: number;
 	name: string;
 	currency: number;
 	no: string;
 }
 
 export interface TuidEmployee {
+	id?: number;
 	no: string;
 	name: string;
 	firstName: string;
@@ -150,6 +168,7 @@ export interface TuidEmployee {
 }
 
 export interface TuidAddress {
+	id?: number;
 	country: number;
 	province: number;
 	city: number;
@@ -159,6 +178,7 @@ export interface TuidAddress {
 }
 
 export interface TuidDomain {
+	id?: number;
 	name: string;
 	parent: number;
 	no: string;
@@ -166,6 +186,7 @@ export interface TuidDomain {
 }
 
 export interface TuidProductX {
+	id?: number;
 	brand: number;
 	origin: string;
 	description: string;
@@ -173,13 +194,19 @@ export interface TuidProductX {
 }
 
 export interface TuidBrand {
+	id?: number;
 	name: string;
+}
+
+export interface TuidCustomerSettingType {
+	id?: number;
+	description: string;
 }
 
 export interface ParamSearchCustomer {
 	key: string;
 }
-interface ReturnSearchCustomer$page {
+export interface ReturnSearchCustomer$page {
 	id: number;
 	no: string;
 	name: string;
@@ -188,14 +215,14 @@ interface ReturnSearchCustomer$page {
 	gender: string;
 	salutation: string;
 }
-interface ResultSearchCustomer {
+export interface ResultSearchCustomer {
 	$page: ReturnSearchCustomer$page[];
 }
 
 export interface ParamGetBuyerAccountByNo {
 	buyAccountNo: string;
 }
-interface ReturnGetBuyerAccountByNoRet {
+export interface ReturnGetBuyerAccountByNoRet {
 	buyerAccount: number;
 	organization: number;
 	description: string;
@@ -204,59 +231,59 @@ interface ReturnGetBuyerAccountByNoRet {
 	createTime: any;
 	isValid: number;
 }
-interface ResultGetBuyerAccountByNo {
+export interface ResultGetBuyerAccountByNo {
 	ret: ReturnGetBuyerAccountByNoRet[];
 }
 
 export interface ParamGetCustomerByNo {
 	customerNo: string;
 }
-interface ReturnGetCustomerByNoRet {
+export interface ReturnGetCustomerByNoRet {
 	customer: number;
 }
-interface ResultGetCustomerByNo {
+export interface ResultGetCustomerByNo {
 	ret: ReturnGetCustomerByNoRet[];
 }
 
 export interface ParamGetCustomerOrganization {
 	customerId: number;
 }
-interface ReturnGetCustomerOrganizationRet {
+export interface ReturnGetCustomerOrganizationRet {
 	organization: number;
 	customer: number;
 }
-interface ResultGetCustomerOrganization {
+export interface ResultGetCustomerOrganization {
 	ret: ReturnGetCustomerOrganizationRet[];
 }
 
 export interface ParamGetCustomerByKey {
 	key: string;
 }
-interface ReturnGetCustomerByKeyRet {
+export interface ReturnGetCustomerByKeyRet {
 	customer: number;
 }
-interface ResultGetCustomerByKey {
+export interface ResultGetCustomerByKey {
 	ret: ReturnGetCustomerByKeyRet[];
 }
 
 export interface ParamSearchDomain {
 	_parent: number;
 }
-interface ReturnSearchDomain$page {
+export interface ReturnSearchDomain$page {
 	id: number;
 	name: string;
 	counts: number;
 }
-interface ResultSearchDomain {
+export interface ResultSearchDomain {
 	$page: ReturnSearchDomain$page[];
 }
 
 export interface Param$poked {
 }
-interface Return$pokedRet {
+export interface Return$pokedRet {
 	poke: number;
 }
-interface Result$poked {
+export interface Result$poked {
 	ret: Return$pokedRet[];
 }
 
@@ -270,7 +297,7 @@ export interface $Piecewise {
 
 export interface $PiecewiseDetail {
 	id?: number;
-	main: number;
+	main?: number;
 	sec: number;
 	value: number;
 }
@@ -306,6 +333,7 @@ export interface UqExt extends Uq {
 	Domain: UqTuid<TuidDomain>;
 	ProductX: UqTuid<TuidProductX>;
 	Brand: UqTuid<TuidBrand>;
+	CustomerSettingType: UqTuid<TuidCustomerSettingType>;
 	SearchCustomer: UqQuery<ParamSearchCustomer, ResultSearchCustomer>;
 	GetBuyerAccountByNo: UqQuery<ParamGetBuyerAccountByNo, ResultGetBuyerAccountByNo>;
 	GetCustomerByNo: UqQuery<ParamGetCustomerByNo, ResultGetCustomerByNo>;
@@ -327,6 +355,7 @@ export interface UqExt extends Uq {
 	CustomerRelatedProducts: UqMap;
 	ResearchDomain: UqMap;
 	OrganizationSetting: UqMap;
+	CustomerSettingAlter: UqMap;
 	$Piecewise: UqID<any>;
 	$PiecewiseDetail: UqID<any>;
 }

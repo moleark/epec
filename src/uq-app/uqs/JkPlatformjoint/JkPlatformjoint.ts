@@ -1,4 +1,4 @@
-//=== UqApp builder created on Thu Jun 24 2021 14:48:28 GMT+0800 (中国标准时间) ===//
+//=== UqApp builder created on Wed Jul 14 2021 11:24:56 GMT+0800 (中国标准时间) ===//
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { IDXValue, Uq, UqTuid, UqAction, UqQuery, UqMap, UqHistory, UqPending, UqID } from "tonva-react";
 
@@ -8,6 +8,7 @@ import { IDXValue, Uq, UqTuid, UqAction, UqQuery, UqMap, UqHistory, UqPending, U
 //===============================
 
 export interface Tuid$sheet {
+	id?: number;
 	no: string;
 	user: number;
 	date: any;
@@ -22,10 +23,12 @@ export interface Tuid$sheet {
 }
 
 export interface TuidPlatform {
+	id?: number;
 	name: string;
 }
 
 export interface Tuid$user {
+	id?: number;
 	name: string;
 	nick: string;
 	icon: string;
@@ -34,15 +37,19 @@ export interface Tuid$user {
 }
 
 export interface TuidCity {
+	id?: number;
 }
 
 export interface TuidCounty {
+	id?: number;
 }
 
 export interface TuidProvince {
+	id?: number;
 }
 
 export interface TuidJDCity {
+	id?: number;
 	province: number;
 	englishName: string;
 	chineseName: string;
@@ -51,6 +58,7 @@ export interface TuidJDCity {
 }
 
 export interface TuidJDCounty {
+	id?: number;
 	city: number;
 	englishName: string;
 	chineseName: string;
@@ -59,6 +67,7 @@ export interface TuidJDCounty {
 }
 
 export interface TuidJDTown {
+	id?: number;
 	county: number;
 	englishName: string;
 	chineseName: string;
@@ -67,6 +76,7 @@ export interface TuidJDTown {
 }
 
 export interface TuidJDProvince {
+	id?: number;
 	country: number;
 	englishName: string;
 	chineseName: string;
@@ -75,6 +85,7 @@ export interface TuidJDProvince {
 }
 
 export interface TuidPlatformCustomer {
+	id?: number;
 	platform: number;
 	idOnPlatform: string;
 	name: string;
@@ -85,9 +96,11 @@ export interface TuidPlatformCustomer {
 }
 
 export interface TuidCustomer {
+	id?: number;
 }
 
 export interface TuidEpecProvince {
+	id?: number;
 	country: number;
 	englishName: string;
 	chineseName: string;
@@ -97,6 +110,7 @@ export interface TuidEpecProvince {
 }
 
 export interface TuidEpecCity {
+	id?: number;
 	province: number;
 	englishName: string;
 	chineseName: string;
@@ -106,6 +120,7 @@ export interface TuidEpecCity {
 }
 
 export interface TuidEpecCounty {
+	id?: number;
 	city: number;
 	englishName: string;
 	chineseName: string;
@@ -115,14 +130,17 @@ export interface TuidEpecCounty {
 }
 
 export interface TuidWebUser {
+	id?: number;
 }
 
 export interface TuidEpecMessage {
+	id?: number;
 	content: string;
 	createtime: any;
 }
 
 export interface TuidEpecMessageData {
+	id?: number;
 	epecMessage: number;
 	messageId: number;
 	messageSortNumber: number;
@@ -133,6 +151,7 @@ export interface TuidEpecMessageData {
 }
 
 export interface TuidApiRawContent {
+	id?: number;
 	platform: number;
 	api: string;
 	content: string;
@@ -140,35 +159,48 @@ export interface TuidApiRawContent {
 }
 
 export interface TuidExpressLogistics {
+	id?: number;
 }
 
 export interface TuidPunchoutSetupRequest {
+	id?: number;
 	platform: number;
-	userIdentity: string;
+	fromDomain: string;
+	fromIdentity: string;
+	toDomain: string;
+	toIdentity: string;
+	senderDomain: string;
+	senderIdentity: string;
+	senderUserAgent: string;
+	senderSharedSecret: string;
+	browserFormPostUrl: string;
+	buyerCookie: string;
+	payloadID: string;
 	body: string;
 }
 
 export interface TuidOrganization {
+	id?: number;
 }
 
 export interface ParamAuditPlatformCustomerRefuse {
 	platformCustomer: number;
 	reason: string;
 }
-interface ResultAuditPlatformCustomerRefuse {
+export interface ResultAuditPlatformCustomerRefuse {
 }
 
 export interface ParamApplyAuditPlatformCustomer {
 	platformCustomer: number;
 }
-interface ResultApplyAuditPlatformCustomer {
+export interface ResultApplyAuditPlatformCustomer {
 }
 
 export interface ParamAuditPlatformCustomer {
 	platformCustomer: number;
 	customer: number;
 }
-interface ResultAuditPlatformCustomer {
+export interface ResultAuditPlatformCustomer {
 }
 
 export interface ParamAddPlatformCustomerAuditPending {
@@ -193,15 +225,15 @@ export interface ParamAddPlatformCustomerAuditPending {
 	quantity: number;
 	purity: string;
 }
-interface ResultAddPlatformCustomerAuditPending {
+export interface ResultAddPlatformCustomerAuditPending {
 }
 
 export interface Param$poked {
 }
-interface Return$pokedRet {
+export interface Return$pokedRet {
 	poke: number;
 }
-interface Result$poked {
+export interface Result$poked {
 	ret: Return$pokedRet[];
 }
 
@@ -209,39 +241,39 @@ export interface ParamGetplatformCustomerID {
 	platform: number;
 	idOnPlatform: string;
 }
-interface ReturnGetplatformCustomerIDRet {
+export interface ReturnGetplatformCustomerIDRet {
 	id: number;
 }
-interface ResultGetplatformCustomerID {
+export interface ResultGetplatformCustomerID {
 	ret: ReturnGetplatformCustomerIDRet[];
 }
 
 export interface ParamGetPlatformCustomerAuditOrderPending {
 	platformCustomer: number;
 }
-interface ReturnGetPlatformCustomerAuditOrderPendingRet {
+export interface ReturnGetPlatformCustomerAuditOrderPendingRet {
 	orderid: string;
 	date: any;
 }
-interface ResultGetPlatformCustomerAuditOrderPending {
+export interface ResultGetPlatformCustomerAuditOrderPending {
 	ret: ReturnGetPlatformCustomerAuditOrderPendingRet[];
 }
 
 export interface ParamSearchHavingAuditRefusePlatformCustomer {
 }
-interface ReturnSearchHavingAuditRefusePlatformCustomer$page {
+export interface ReturnSearchHavingAuditRefusePlatformCustomer$page {
 	date: any;
 	platformcustomer: number;
 	reason: string;
 }
-interface ResultSearchHavingAuditRefusePlatformCustomer {
+export interface ResultSearchHavingAuditRefusePlatformCustomer {
 	$page: ReturnSearchHavingAuditRefusePlatformCustomer$page[];
 }
 
 export interface ParamGetOrderDetails {
 	orderid: string;
 }
-interface ReturnGetOrderDetailsRet {
+export interface ReturnGetOrderDetailsRet {
 	orderid: string;
 	consigneeName: string;
 	consigneePhone: string;
@@ -262,40 +294,40 @@ interface ReturnGetOrderDetailsRet {
 	purity: string;
 	comments: string;
 }
-interface ResultGetOrderDetails {
+export interface ResultGetOrderDetails {
 	ret: ReturnGetOrderDetailsRet[];
 }
 
 export interface ParamSearchHavingAuditPlatformCustomer {
 }
-interface ReturnSearchHavingAuditPlatformCustomer$page {
+export interface ReturnSearchHavingAuditPlatformCustomer$page {
 	date: any;
 	platformcustomer: number;
 	customer: number;
 }
-interface ResultSearchHavingAuditPlatformCustomer {
+export interface ResultSearchHavingAuditPlatformCustomer {
 	$page: ReturnSearchHavingAuditPlatformCustomer$page[];
 }
 
 export interface ParamGetPendingAuditPlatformCustomer {
 }
-interface ReturnGetPendingAuditPlatformCustomerRet {
+export interface ReturnGetPendingAuditPlatformCustomerRet {
 	platformcustomer: number;
 }
-interface ResultGetPendingAuditPlatformCustomer {
+export interface ResultGetPendingAuditPlatformCustomer {
 	ret: ReturnGetPendingAuditPlatformCustomerRet[];
 }
 
 export interface ParamGetNewOrderItemId {
 	platform: number;
 }
-interface ResultGetNewOrderItemId {
+export interface ResultGetNewOrderItemId {
 }
 
 export interface ParamGetNewOrderId {
 	platform: number;
 }
-interface ResultGetNewOrderId {
+export interface ResultGetNewOrderId {
 }
 
 export interface ParamSearchEpecUser {
@@ -321,7 +353,6 @@ export interface ReturnSearchNeoTridentUser$page {
 	username: string;
 	organization: string;
 	team: string;
-	$id: number;
 }
 export interface ResultSearchNeoTridentUser {
 	$page: ReturnSearchNeoTridentUser$page[];
@@ -334,9 +365,8 @@ export interface ReturnSearchEpecOrganization$page {
 	organization: number;
 	organizationId: string;
 	organizationName: string;
-	$id: number;
 }
-interface ResultSearchEpecOrganization {
+export interface ResultSearchEpecOrganization {
 	$page: ReturnSearchEpecOrganization$page[];
 }
 
@@ -344,13 +374,13 @@ export interface ParamPlatformCustomerAuditRefuseHistory {
 	platformCustomer: number;
 	reason: string;
 }
-interface ReturnPlatformCustomerAuditRefuseHistory$page {
+export interface ReturnPlatformCustomerAuditRefuseHistory$page {
 	date: any;
 	platformCustomer: number;
 	reason: string;
 	user: number;
 }
-interface ResultPlatformCustomerAuditRefuseHistory {
+export interface ResultPlatformCustomerAuditRefuseHistory {
 	$page: ReturnPlatformCustomerAuditRefuseHistory$page[];
 }
 
@@ -358,19 +388,19 @@ export interface ParamPlatformCustomerAuditHistory {
 	platformCustomer: number;
 	customer: number;
 }
-interface ReturnPlatformCustomerAuditHistory$page {
+export interface ReturnPlatformCustomerAuditHistory$page {
 	date: any;
 	platformCustomer: number;
 	customer: number;
 	user: number;
 }
-interface ResultPlatformCustomerAuditHistory {
+export interface ResultPlatformCustomerAuditHistory {
 	$page: ReturnPlatformCustomerAuditHistory$page[];
 }
 
 export interface $PiecewiseDetail {
 	id?: number;
-	main: number;
+	main?: number;
 	sec: number;
 	value: number;
 }
@@ -390,7 +420,7 @@ export interface ParamActs {
 
 
 export interface UqExt extends Uq {
-	Acts(param: ParamActs): Promise<any>;
+	Acts(param:ParamActs): Promise<any>;
 
 	$sheet: UqTuid<Tuid$sheet>;
 	Platform: UqTuid<TuidPlatform>;

@@ -1,4 +1,4 @@
-//=== UqApp builder created on Thu Jun 24 2021 14:48:28 GMT+0800 (中国标准时间) ===//
+//=== UqApp builder created on Wed Jul 14 2021 11:24:56 GMT+0800 (中国标准时间) ===//
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { IDXValue, Uq, UqTuid, UqAction, UqBook, UqQuery, UqMap, UqHistory, UqID } from "tonva-react";
 
@@ -8,6 +8,7 @@ import { IDXValue, Uq, UqTuid, UqAction, UqBook, UqQuery, UqMap, UqHistory, UqID
 //===============================
 
 export interface TuidInvoiceInfo {
+	id?: number;
 	title: string;
 	taxNo: string;
 	address: string;
@@ -17,6 +18,7 @@ export interface TuidInvoiceInfo {
 }
 
 export interface TuidAddress {
+	id?: number;
 	country: number;
 	province: number;
 	city: number;
@@ -26,12 +28,14 @@ export interface TuidAddress {
 }
 
 export interface TuidSalesRegion {
+	id?: number;
 	name: string;
 	currency: number;
 	no: string;
 }
 
 export interface TuidCounty {
+	id?: number;
 	city: number;
 	englishName: string;
 	chineseName: string;
@@ -39,6 +43,7 @@ export interface TuidCounty {
 }
 
 export interface TuidCustomer {
+	id?: number;
 	name: string;
 	firstName: string;
 	lastName: string;
@@ -50,6 +55,7 @@ export interface TuidCustomer {
 }
 
 export interface Tuid$user {
+	id?: number;
 	name: string;
 	nick: string;
 	icon: string;
@@ -58,6 +64,7 @@ export interface Tuid$user {
 }
 
 export interface TuidWebUser {
+	id?: number;
 	name: string;
 	firstName: string;
 	lastName: string;
@@ -69,10 +76,12 @@ export interface TuidWebUser {
 }
 
 export interface TuidAuditPendingUserRefuseReason {
+	id?: number;
 	description: string;
 }
 
 export interface TuidCity {
+	id?: number;
 	province: number;
 	englishName: string;
 	chineseName: string;
@@ -80,18 +89,22 @@ export interface TuidCity {
 }
 
 export interface TuidInvoiceType {
+	id?: number;
 	description: string;
 }
 
 export interface TuidBuyerAccount {
+	id?: number;
 }
 
 export interface TuidCurrency {
+	id?: number;
 	name: string;
 	suffix: string;
 }
 
 export interface Tuid$sheet {
+	id?: number;
 	no: string;
 	user: number;
 	date: any;
@@ -106,6 +119,7 @@ export interface Tuid$sheet {
 }
 
 export interface TuidCountry {
+	id?: number;
 	code: string;
 	englishName: string;
 	chineseName: string;
@@ -113,6 +127,7 @@ export interface TuidCountry {
 }
 
 export interface TuidProvince {
+	id?: number;
 	country: number;
 	englishName: string;
 	chineseName: string;
@@ -120,6 +135,7 @@ export interface TuidProvince {
 }
 
 export interface TuidContact {
+	id?: number;
 	name: string;
 	organizationName: string;
 	mobile: string;
@@ -130,22 +146,27 @@ export interface TuidContact {
 }
 
 export interface TuidWebUserSettingType {
+	id?: number;
 	description: string;
 }
 
 export interface TuidVIPCardType {
+	id?: number;
 }
 
 export interface TuidProductX {
+	id?: number;
 	brand: number;
 }
 
 export interface TuidBrand {
+	id?: number;
 	name: string;
 	no: string;
 }
 
 export interface TuidChemical {
+	id?: number;
 }
 
 export interface ParamAuditPendingUser {
@@ -153,7 +174,7 @@ export interface ParamAuditPendingUser {
 	customerId: number;
 	buyerAccountId: number;
 }
-interface ResultAuditPendingUser {
+export interface ResultAuditPendingUser {
 }
 
 export interface ParamAuditPendingUserRefuse {
@@ -161,7 +182,7 @@ export interface ParamAuditPendingUserRefuse {
 	reason: number;
 	comments: string;
 }
-interface ResultAuditPendingUserRefuse {
+export interface ResultAuditPendingUserRefuse {
 }
 
 export interface ParamRecordLogin {
@@ -169,62 +190,62 @@ export interface ParamRecordLogin {
 	ip: string;
 	app: string;
 }
-interface ResultRecordLogin {
+export interface ResultRecordLogin {
 }
 
 export interface ParamSetCustomerMainWebUser {
 	customer: number;
 	webUser: number;
 }
-interface ResultSetCustomerMainWebUser {
+export interface ResultSetCustomerMainWebUser {
 }
 
 export interface ParamApplyAuditUser {
 	webUser: number;
 }
-interface ResultApplyAuditUser {
+export interface ResultApplyAuditUser {
 }
 
 export interface ParamGetPendingAuditUser {
 }
-interface ReturnGetPendingAuditUserRet {
+export interface ReturnGetPendingAuditUserRet {
 	webUser: number;
 }
-interface ResultGetPendingAuditUser {
+export interface ResultGetPendingAuditUser {
 	ret: ReturnGetPendingAuditUserRet[];
 }
 
 export interface ParamSearchHavingRefuseUser {
 }
-interface ReturnSearchHavingRefuseUser$page {
+export interface ReturnSearchHavingRefuseUser$page {
 	id: number;
 	webUser: number;
 	reason: number;
 	comments: string;
 	date: any;
 }
-interface ResultSearchHavingRefuseUser {
+export interface ResultSearchHavingRefuseUser {
 	$page: ReturnSearchHavingRefuseUser$page[];
 }
 
 export interface ParamSearchHavingAuditUser {
 }
-interface ReturnSearchHavingAuditUser$page {
+export interface ReturnSearchHavingAuditUser$page {
 	id: number;
 	webUser: number;
 	customer: number;
 	date: any;
 }
-interface ResultSearchHavingAuditUser {
+export interface ResultSearchHavingAuditUser {
 	$page: ReturnSearchHavingAuditUser$page[];
 }
 
 export interface Param$poked {
 }
-interface Return$pokedRet {
+export interface Return$pokedRet {
 	poke: number;
 }
-interface Result$poked {
+export interface Result$poked {
 	ret: Return$pokedRet[];
 }
 
@@ -232,7 +253,7 @@ export interface ParamGetMyFavirates {
 	webUser: number;
 	salesRegion: number;
 }
-interface ReturnGetMyFavirates$page {
+export interface ReturnGetMyFavirates$page {
 	seq: number;
 	id: number;
 	no: string;
@@ -248,14 +269,14 @@ interface ReturnGetMyFavirates$page {
 	molecularWeight: string;
 	discountinued: number;
 }
-interface ResultGetMyFavirates {
+export interface ResultGetMyFavirates {
 	$page: ReturnGetMyFavirates$page[];
 }
 
 export interface ParamGetMyExpiredCoupon {
 	webUser: number;
 }
-interface ReturnGetMyExpiredCoupon$page {
+export interface ReturnGetMyExpiredCoupon$page {
 	seq: number;
 	id: number;
 	code: number;
@@ -263,39 +284,39 @@ interface ReturnGetMyExpiredCoupon$page {
 	createdate: any;
 	expireddate: any;
 }
-interface ResultGetMyExpiredCoupon {
+export interface ResultGetMyExpiredCoupon {
 	$page: ReturnGetMyExpiredCoupon$page[];
 }
 
 export interface ParamGetMyUsedCoupon {
 	webUser: number;
 }
-interface ReturnGetMyUsedCoupon$page {
+export interface ReturnGetMyUsedCoupon$page {
 	seq: number;
 	id: number;
 	code: number;
 	types: string;
 	useddate: any;
 }
-interface ResultGetMyUsedCoupon {
+export interface ResultGetMyUsedCoupon {
 	$page: ReturnGetMyUsedCoupon$page[];
 }
 
 export interface ParamSearchCouponReceive {
 	coupon: number;
 }
-interface ReturnSearchCouponReceiveRet {
+export interface ReturnSearchCouponReceiveRet {
 	webuser: number;
 	createDate: any;
 }
-interface ResultSearchCouponReceive {
+export interface ResultSearchCouponReceive {
 	ret: ReturnSearchCouponReceiveRet[];
 }
 
 export interface ParamGetWebUserByCustomer {
 	customer: number;
 }
-interface ReturnGetWebUserByCustomerRet {
+export interface ReturnGetWebUserByCustomerRet {
 	id: number;
 	name: string;
 	firstName: string;
@@ -303,16 +324,16 @@ interface ReturnGetWebUserByCustomerRet {
 	organizationName: string;
 	priority: number;
 }
-interface ResultGetWebUserByCustomer {
+export interface ResultGetWebUserByCustomer {
 	ret: ReturnGetWebUserByCustomerRet[];
 }
 
 export interface ParamPendingAuditWebUser {
 }
-interface ReturnPendingAuditWebUser$page {
+export interface ReturnPendingAuditWebUser$page {
 	webUser: number;
 }
-interface ResultPendingAuditWebUser {
+export interface ResultPendingAuditWebUser {
 	$page: ReturnPendingAuditWebUser$page[];
 }
 
@@ -321,14 +342,14 @@ export interface ParamWebUserAuditHistory {
 	customer: number;
 	buyerAccount: number;
 }
-interface ReturnWebUserAuditHistory$page {
+export interface ReturnWebUserAuditHistory$page {
 	date: any;
 	webUser: number;
 	customer: number;
 	buyerAccount: number;
 	user: number;
 }
-interface ResultWebUserAuditHistory {
+export interface ResultWebUserAuditHistory {
 	$page: ReturnWebUserAuditHistory$page[];
 }
 
@@ -337,14 +358,14 @@ export interface ParamWebUserAuditRefuseHistory {
 	reason: number;
 	comments: string;
 }
-interface ReturnWebUserAuditRefuseHistory$page {
+export interface ReturnWebUserAuditRefuseHistory$page {
 	date: any;
 	webUser: number;
 	reason: number;
 	comments: string;
 	user: number;
 }
-interface ResultWebUserAuditRefuseHistory {
+export interface ResultWebUserAuditRefuseHistory {
 	$page: ReturnWebUserAuditRefuseHistory$page[];
 }
 
@@ -353,13 +374,13 @@ export interface ParamLoginHistory {
 	ip: string;
 	app: string;
 }
-interface ReturnLoginHistory$page {
+export interface ReturnLoginHistory$page {
 	date: any;
 	webUser: number;
 	ip: string;
 	app: string;
 }
-interface ResultLoginHistory {
+export interface ResultLoginHistory {
 	$page: ReturnLoginHistory$page[];
 }
 

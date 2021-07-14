@@ -36,36 +36,6 @@ export const appConfig: AppConfig = {
 		},
 		{
 			dev: jk,
-			name: 'warehouse',
-			version: '0.1.0',
-		},
-		{
-			dev: jk,
-			name: 'hr',
-			version: '0.1.0',
-		},
-		{
-			dev: jk,
-			name: 'product',
-			version: '0.1.0',
-		},
-		{
-			dev: jk,
-			name: 'vipcardtype',
-			version: '0.1.0',
-		},
-		{
-			dev: jk,
-			name: 'chemical',
-			version: '0.1.0',
-		},
-		{
-			dev: jk,
-			name: 'chemicalsecurity',
-			version: '0.1.0',
-		},
-		{
-			dev: jk,
 			name: 'platformjoint',
 			version: '0.1.0',
 		},

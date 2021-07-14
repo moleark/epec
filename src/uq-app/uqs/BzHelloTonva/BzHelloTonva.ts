@@ -1,4 +1,4 @@
-//=== UqApp builder created on Thu Jun 24 2021 14:48:28 GMT+0800 (中国标准时间) ===//
+//=== UqApp builder created on Wed Jul 14 2021 11:24:56 GMT+0800 (中国标准时间) ===//
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { IDXValue, Uq, UqTuid, UqQuery, UqID, UqIDX, UqIX } from "tonva-react";
 
@@ -8,6 +8,7 @@ import { IDXValue, Uq, UqTuid, UqQuery, UqID, UqIDX, UqIX } from "tonva-react";
 //===============================
 
 export interface Tuid$sheet {
+	id?: number;
 	no: string;
 	user: number;
 	date: any;
@@ -22,6 +23,7 @@ export interface Tuid$sheet {
 }
 
 export interface Tuid$user {
+	id?: number;
 	name: string;
 	nick: string;
 	icon: string;
@@ -31,11 +33,11 @@ export interface Tuid$user {
 
 export interface Param$poked {
 }
-interface Return$pokedRet {
+export interface Return$pokedRet {
 	poke: number;
 	$id: number;
 }
-interface Result$poked {
+export interface Result$poked {
 	ret: Return$pokedRet[];
 }
 

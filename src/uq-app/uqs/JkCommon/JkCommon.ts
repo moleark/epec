@@ -1,4 +1,4 @@
-//=== UqApp builder created on Thu Jun 24 2021 14:48:28 GMT+0800 (中国标准时间) ===//
+//=== UqApp builder created on Wed Jul 14 2021 11:24:56 GMT+0800 (中国标准时间) ===//
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { IDXValue, Uq, UqTuid, UqQuery, UqMap, UqID } from "tonva-react";
 
@@ -8,6 +8,7 @@ import { IDXValue, Uq, UqTuid, UqQuery, UqMap, UqID } from "tonva-react";
 //===============================
 
 export interface Tuid$user {
+	id?: number;
 	name: string;
 	nick: string;
 	icon: string;
@@ -16,6 +17,7 @@ export interface Tuid$user {
 }
 
 export interface Tuid$sheet {
+	id?: number;
 	no: string;
 	user: number;
 	date: any;
@@ -30,6 +32,7 @@ export interface Tuid$sheet {
 }
 
 export interface TuidCountry {
+	id?: number;
 	code: string;
 	englishName: string;
 	chineseName: string;
@@ -39,6 +42,7 @@ export interface TuidCountry {
 }
 
 export interface TuidProvince {
+	id?: number;
 	country: number;
 	englishName: string;
 	chineseName: string;
@@ -48,6 +52,7 @@ export interface TuidProvince {
 }
 
 export interface TuidCity {
+	id?: number;
 	province: number;
 	englishName: string;
 	chineseName: string;
@@ -57,6 +62,7 @@ export interface TuidCity {
 }
 
 export interface TuidCounty {
+	id?: number;
 	city: number;
 	englishName: string;
 	chineseName: string;
@@ -66,6 +72,7 @@ export interface TuidCounty {
 }
 
 export interface TuidAddress {
+	id?: number;
 	country: number;
 	province: number;
 	city: number;
@@ -75,23 +82,27 @@ export interface TuidAddress {
 }
 
 export interface TuidSalesRegion {
+	id?: number;
 	name: string;
 	currency: number;
 	no: string;
 }
 
 export interface TuidCurrency {
+	id?: number;
 	name: string;
 	suffix: string;
 }
 
 export interface TuidPackType {
+	id?: number;
 	name: string;
 	description: string;
 	no: number;
 }
 
 export interface TuidPackTypeStandard {
+	id?: number;
 	name: string;
 	no: number;
 	description: string;
@@ -99,44 +110,46 @@ export interface TuidPackTypeStandard {
 }
 
 export interface TuidLanguage {
+	id?: number;
 	no: string;
 	description: string;
 }
 
 export interface TuidInvoiceType {
+	id?: number;
 	description: string;
 }
 
 export interface ParamGetCountryProvinces {
 	country: number;
 }
-interface ReturnGetCountryProvincesRet {
+export interface ReturnGetCountryProvincesRet {
 	province: number;
 	$id: number;
 }
-interface ResultGetCountryProvinces {
+export interface ResultGetCountryProvinces {
 	ret: ReturnGetCountryProvincesRet[];
 }
 
 export interface ParamGetProvinceCities {
 	province: number;
 }
-interface ReturnGetProvinceCitiesRet {
+export interface ReturnGetProvinceCitiesRet {
 	city: number;
 	$id: number;
 }
-interface ResultGetProvinceCities {
+export interface ResultGetProvinceCities {
 	ret: ReturnGetProvinceCitiesRet[];
 }
 
 export interface ParamGetCityCounties {
 	city: number;
 }
-interface ReturnGetCityCountiesRet {
+export interface ReturnGetCityCountiesRet {
 	county: number;
 	$id: number;
 }
-interface ResultGetCityCounties {
+export interface ResultGetCityCounties {
 	ret: ReturnGetCityCountiesRet[];
 }
 
@@ -144,11 +157,11 @@ export interface ParamGetProvinceByName {
 	country: number;
 	provinceName: string;
 }
-interface ReturnGetProvinceByNameRet {
+export interface ReturnGetProvinceByNameRet {
 	province: number;
 	$id: number;
 }
-interface ResultGetProvinceByName {
+export interface ResultGetProvinceByName {
 	ret: ReturnGetProvinceByNameRet[];
 }
 
@@ -156,11 +169,11 @@ export interface ParamGetCountyByName {
 	city: number;
 	countyName: string;
 }
-interface ReturnGetCountyByNameRet {
+export interface ReturnGetCountyByNameRet {
 	county: number;
 	$id: number;
 }
-interface ResultGetCountyByName {
+export interface ResultGetCountyByName {
 	ret: ReturnGetCountyByNameRet[];
 }
 
@@ -168,32 +181,32 @@ export interface ParamGetCityByName {
 	province: number;
 	cityName: string;
 }
-interface ReturnGetCityByNameRet {
+export interface ReturnGetCityByNameRet {
 	city: number;
 	$id: number;
 }
-interface ResultGetCityByName {
+export interface ResultGetCityByName {
 	ret: ReturnGetCityByNameRet[];
 }
 
 export interface ParamSearchPackType {
 }
-interface ReturnSearchPackTypeRet {
+export interface ReturnSearchPackTypeRet {
 	id: number;
 	name: string;
 	$id: number;
 }
-interface ResultSearchPackType {
+export interface ResultSearchPackType {
 	ret: ReturnSearchPackTypeRet[];
 }
 
 export interface Param$poked {
 }
-interface Return$pokedRet {
+export interface Return$pokedRet {
 	poke: number;
 	$id: number;
 }
-interface Result$poked {
+export interface Result$poked {
 	ret: Return$pokedRet[];
 }
 
