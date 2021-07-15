@@ -97,7 +97,7 @@ export class CUser extends CUqBase {
     addEpecUser = async (param: any) => {
         let { webuser, username, organizationId, mobile, useremail, organizationName, password, isAdmin } = param;
         await this.uqs.JkPlatformjoint.EpecUser.add({
-            webuser: webuser, username: username, password: password, organizationId: organizationId,
+            webUser: webuser, username: username, password: password, organizationId: organizationId,
             organizationName: organizationName, mobile: mobile, email: useremail, isAdmin: isAdmin
         });
     }

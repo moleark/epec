@@ -76,6 +76,8 @@ export class VCreateUserEpec extends VPage<CUser>{
     private onFormButtonClick = async (name: string, context: Context) => {
         let { form } = context;
         let { data } = form;
+        let { cApp } = this.controller;
+        let { cEpec } = cApp;
         let { username, password, mobile, useremail, firstName, gender, organizationName, customerNo } = data;
         if (organizationName === "请选择单位") return;
         let { auditPendingUser, submitCreateUser, addWebUser, addEpecUser, getCustomerByNo, relateInvoiceByEpecOrg } = this.controller;
@@ -91,7 +93,7 @@ export class VCreateUserEpec extends VPage<CUser>{
                 await addWebUser({id: res,
                     webUser: { firstName: firstName, gender: gender, salutation: Salutations[gender], organizationName: organizationName, departmentName: "-" }
                 });
-                let organizationIdFind = this.organizationList.find((el: any) => el && el.value === organizationName);
+                let organizationIdFind = cEpec.epecOrganizations.find((el: any) => el && el.organizationName === organizationName);
                 await addEpecUser({ ...data, webuser: res, organizationId: organizationIdFind?.organizationId });
                 await auditPendingUser({ webuser: res, customerNo: customerNo, customerResult: customerResult });
                 await relateInvoiceByEpecOrg({ webUser: res, organizationId: organizationIdFind?.organizationId });
