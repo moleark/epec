@@ -51,6 +51,20 @@ export class VMe extends VPage<CMe> {
                     component: <IconText iconClass="text-info mr-2" icon="list" text="中石化单位" />,
                     onClick: this.controller.openEpecOrganization
                 },
+                '',
+                {
+                    type: 'component',
+                    component: <IconText iconClass="text-info mr-2" icon="calendar-check-o" text="订单发运通知" />,
+                    onClick: this.controller.cApp.cOrder.openOrderDeliveryNotice
+                },{
+                    type: 'component',
+                    component: <IconText iconClass="text-info mr-2" icon="calendar-times-o" text="取消订单申请" />,
+                    onClick: this.controller.cApp.cOrder.openCancelOrderApplys
+                },{
+                    type: 'component',
+                    component: <IconText iconClass="text-info mr-2" icon="bookmark-o" text="发票申请" />,
+                    onClick: this.controller.cApp.cOrder.openInvoiceApplys
+                },
             ]
             rows.push(...aboutRows, ...logOutRows);
         }

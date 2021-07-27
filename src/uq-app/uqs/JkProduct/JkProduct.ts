@@ -1,4 +1,4 @@
-//=== UqApp builder created on Thu Jun 24 2021 14:48:28 GMT+0800 (中国标准时间) ===//
+//=== UqApp builder created on Tue Jul 27 2021 15:50:52 GMT+0800 (中国标准时间) ===//
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { IDXValue, Uq, UqTuid, UqAction, UqQuery, UqMap, UqHistory, UqID } from "tonva-react";
 
@@ -8,6 +8,7 @@ import { IDXValue, Uq, UqTuid, UqAction, UqQuery, UqMap, UqHistory, UqID } from 
 //===============================
 
 export interface Tuid$user {
+	id?: number;
 	name: string;
 	nick: string;
 	icon: string;
@@ -16,6 +17,7 @@ export interface Tuid$user {
 }
 
 export interface Tuid$sheet {
+	id?: number;
 	no: string;
 	user: number;
 	date: any;
@@ -30,41 +32,49 @@ export interface Tuid$sheet {
 }
 
 export interface TuidChemical {
+	id?: number;
 	CAS: string;
 }
 
 export interface TuidSalesRegion {
+	id?: number;
 	name: string;
 	currency: number;
 	no: string;
 }
 
 export interface TuidCurrency {
+	id?: number;
 	name: string;
 	suffix: string;
 }
 
 export interface TuidPackType {
+	id?: number;
 	name: string;
 	description: string;
 }
 
 export interface TuidLanguage {
+	id?: number;
 	no: string;
 	description: string;
 }
 
 export interface TuidBrand {
+	id?: number;
 	name: string;
 	no: string;
 }
 
 export interface TuidStuff {
+	id?: number;
 	name: string;
 	packType: number;
 }
 
 export interface TuidProductX {
+	id?: number;
 	brand: number;
 	origin: string;
 	description: string;
@@ -75,6 +85,7 @@ export interface TuidProductX {
 }
 
 export interface TuidProductCategory {
+	id?: number;
 	no: number;
 	parent: number;
 	isLeaf: number;
@@ -82,42 +93,44 @@ export interface TuidProductCategory {
 }
 
 export interface TuidLot {
+	id?: number;
 	lotnumber: string;
 	product: number;
 }
 
 export interface TuidPackSalesLevel {
+	id?: number;
 	name: string;
 	no: string;
 }
 
 export interface ParamCountProductCategoryInclusion {
 }
-interface ResultCountProductCategoryInclusion {
+export interface ResultCountProductCategoryInclusion {
 }
 
 export interface ParamGetRootCategory {
 	salesRegion: number;
 	language: number;
 }
-interface ReturnGetRootCategoryFirst {
+export interface ReturnGetRootCategoryFirst {
 	productCategory: number;
 	name: string;
 	total: number;
 }
-interface ReturnGetRootCategorySecend {
-	productCategory: number;
-	parent: number;
-	name: string;
-	total: number;
-}
-interface ReturnGetRootCategoryThird {
+export interface ReturnGetRootCategorySecend {
 	productCategory: number;
 	parent: number;
 	name: string;
 	total: number;
 }
-interface ResultGetRootCategory {
+export interface ReturnGetRootCategoryThird {
+	productCategory: number;
+	parent: number;
+	name: string;
+	total: number;
+}
+export interface ResultGetRootCategory {
 	first: ReturnGetRootCategoryFirst[];
 	secend: ReturnGetRootCategorySecend[];
 	third: ReturnGetRootCategoryThird[];
@@ -128,19 +141,19 @@ export interface ParamGetChildrenCategory {
 	salesRegion: number;
 	language: number;
 }
-interface ReturnGetChildrenCategoryFirst {
+export interface ReturnGetChildrenCategoryFirst {
 	productCategory: number;
 	parent: number;
 	name: string;
 	total: number;
 }
-interface ReturnGetChildrenCategorySecend {
+export interface ReturnGetChildrenCategorySecend {
 	productCategory: number;
 	parent: number;
 	name: string;
 	total: number;
 }
-interface ResultGetChildrenCategory {
+export interface ResultGetChildrenCategory {
 	first: ReturnGetChildrenCategoryFirst[];
 	secend: ReturnGetChildrenCategorySecend[];
 }
@@ -150,7 +163,7 @@ export interface ParamSearchProductByCategory {
 	salesRegion: number;
 	language: number;
 }
-interface ReturnSearchProductByCategory$page {
+export interface ReturnSearchProductByCategory$page {
 	seq: number;
 	id: number;
 	no: string;
@@ -165,7 +178,7 @@ interface ReturnSearchProductByCategory$page {
 	molecularFomula: string;
 	molecularWeight: string;
 }
-interface ResultSearchProductByCategory {
+export interface ResultSearchProductByCategory {
 	$page: ReturnSearchProductByCategory$page[];
 }
 
@@ -173,13 +186,13 @@ export interface ParamGetFutureDeliveryTime {
 	product: number;
 	salesRegion: number;
 }
-interface ReturnGetFutureDeliveryTimeRet {
+export interface ReturnGetFutureDeliveryTimeRet {
 	minValue: number;
 	maxValue: number;
 	unit: string;
 	deliveryTimeDescription: string;
 }
-interface ResultGetFutureDeliveryTime {
+export interface ResultGetFutureDeliveryTime {
 	ret: ReturnGetFutureDeliveryTimeRet[];
 }
 
@@ -187,7 +200,7 @@ export interface ParamSearchProduct {
 	keyWord: string;
 	salesRegion: number;
 }
-interface ReturnSearchProduct$page {
+export interface ReturnSearchProduct$page {
 	seq: number;
 	id: number;
 	no: string;
@@ -202,7 +215,7 @@ interface ReturnSearchProduct$page {
 	molecularFomula: string;
 	molecularWeight: string;
 }
-interface ResultSearchProduct {
+export interface ResultSearchProduct {
 	$page: ReturnSearchProduct$page[];
 }
 
@@ -210,12 +223,12 @@ export interface ParamGetRootCategories {
 	salesRegion: number;
 	language: number;
 }
-interface ReturnGetRootCategoriesRet {
+export interface ReturnGetRootCategoriesRet {
 	productCategory: number;
 	name: string;
 	total: number;
 }
-interface ResultGetRootCategories {
+export interface ResultGetRootCategories {
 	ret: ReturnGetRootCategoriesRet[];
 }
 
@@ -226,21 +239,21 @@ export interface ParamGetPack {
 	radioy: number;
 	unit: string;
 }
-interface ReturnGetPackRet {
+export interface ReturnGetPackRet {
 	product: number;
 	pack: number;
 	jkcat: string;
 }
-interface ResultGetPack {
+export interface ResultGetPack {
 	ret: ReturnGetPackRet[];
 }
 
 export interface Param$poked {
 }
-interface Return$pokedRet {
+export interface Return$pokedRet {
 	poke: number;
 }
-interface Result$poked {
+export interface Result$poked {
 	ret: Return$pokedRet[];
 }
 
@@ -248,7 +261,7 @@ export interface ParamSearchPointProduct {
 	keyWord: string;
 	salesRegion: number;
 }
-interface ReturnSearchPointProduct$page {
+export interface ReturnSearchPointProduct$page {
 	seq: number;
 	id: number;
 	product: number;
@@ -260,8 +273,9 @@ interface ReturnSearchPointProduct$page {
 	radioy: number;
 	unit: string;
 	retail: number;
+	$id: number;
 }
-interface ResultSearchPointProduct {
+export interface ResultSearchPointProduct {
 	$page: ReturnSearchPointProduct$page[];
 }
 
@@ -269,10 +283,10 @@ export interface ParamGetProductByOrigin {
 	origin: string;
 	salesRegion: number;
 }
-interface ReturnGetProductByOriginRet {
+export interface ReturnGetProductByOriginRet {
 	id: number;
 }
-interface ResultGetProductByOrigin {
+export interface ResultGetProductByOrigin {
 	ret: ReturnGetProductByOriginRet[];
 }
 
@@ -280,7 +294,7 @@ export interface ParamGetPointProductMoreBySource {
 	pack: number;
 	salesRegion: number;
 }
-interface ReturnGetPointProductMoreBySourceRet {
+export interface ReturnGetPointProductMoreBySourceRet {
 	id: number;
 	product: number;
 	origin: string;
@@ -291,8 +305,9 @@ interface ReturnGetPointProductMoreBySourceRet {
 	radioy: number;
 	unit: string;
 	retail: number;
+	$id: number;
 }
-interface ResultGetPointProductMoreBySource {
+export interface ResultGetPointProductMoreBySource {
 	ret: ReturnGetPointProductMoreBySourceRet[];
 }
 
@@ -300,11 +315,11 @@ export interface ParamGetLotByLotnumber {
 	lotnumber: string;
 	origin: string;
 }
-interface ReturnGetLotByLotnumberRet {
+export interface ReturnGetLotByLotnumberRet {
 	id: number;
 	product: number;
 }
-interface ResultGetLotByLotnumber {
+export interface ResultGetLotByLotnumber {
 	ret: ReturnGetLotByLotnumberRet[];
 }
 
@@ -312,7 +327,7 @@ export interface ParamGetAvailableProductById {
 	product: number;
 	salesRegion: number;
 }
-interface ReturnGetAvailableProductByIdRet {
+export interface ReturnGetAvailableProductByIdRet {
 	id: number;
 	brand: number;
 	origin: string;
@@ -322,7 +337,7 @@ interface ReturnGetAvailableProductByIdRet {
 	no: string;
 	isValid: number;
 }
-interface ResultGetAvailableProductById {
+export interface ResultGetAvailableProductById {
 	ret: ReturnGetAvailableProductByIdRet[];
 }
 
@@ -330,12 +345,11 @@ export interface ParamGetProductPackByOrigin {
 	origin: string;
 	salesRegion: number;
 }
-interface ReturnGetProductPackByOriginRet {
+export interface ReturnGetProductPackByOriginRet {
 	product: number;
 	pack: number;
-	$id: number;
 }
-interface ResultGetProductPackByOrigin {
+export interface ResultGetProductPackByOrigin {
 	ret: ReturnGetProductPackByOriginRet[];
 }
 
@@ -343,7 +357,7 @@ export interface ParamGetProductPrices {
 	product: number;
 	salesRegion: number;
 }
-interface ReturnGetProductPricesRet {
+export interface ReturnGetProductPricesRet {
 	product: number;
 	pack: number;
 	salesRegion: number;
@@ -352,8 +366,20 @@ interface ReturnGetProductPricesRet {
 	discountinued: number;
 	salesLevel: number;
 }
-interface ResultGetProductPrices {
+export interface ResultGetProductPrices {
 	ret: ReturnGetProductPricesRet[];
+}
+
+export interface ParamGetProductLotNumber {
+	product: number;
+}
+export interface ReturnGetProductLotNumberRet {
+	id: number;
+	product: number;
+	lotnumber: string;
+}
+export interface ResultGetProductLotNumber {
+	ret: ReturnGetProductLotNumberRet[];
 }
 
 export interface ParamProductSearchHistory {
@@ -361,20 +387,19 @@ export interface ParamProductSearchHistory {
 	salesRegion: number;
 	keyword: string;
 }
-interface ReturnProductSearchHistory$page {
+export interface ReturnProductSearchHistory$page {
 	date: any;
 	webUser: number;
 	salesRegion: number;
 	keyword: string;
 }
-interface ResultProductSearchHistory {
+export interface ResultProductSearchHistory {
 	$page: ReturnProductSearchHistory$page[];
 }
 
 export interface $PiecewiseDetail {
 	id?: number;
-	main: number;
-	row?: number;
+	main?: number;
 	sec: number;
 	value: number;
 }
@@ -425,6 +450,7 @@ export interface UqExt extends Uq {
 	GetAvailableProductById: UqQuery<ParamGetAvailableProductById, ResultGetAvailableProductById>;
 	GetProductPackByOrigin: UqQuery<ParamGetProductPackByOrigin, ResultGetProductPackByOrigin>;
 	GetProductPrices: UqQuery<ParamGetProductPrices, ResultGetProductPrices>;
+	GetProductLotNumber: UqQuery<ParamGetProductLotNumber, ResultGetProductLotNumber>;
 	AgentPrice: UqMap;
 	BrandSalesRegion: UqMap;
 	BrandDeliveryTime: UqMap;
@@ -445,6 +471,8 @@ export interface UqExt extends Uq {
 	ProductExtention: UqMap;
 	ProductDeliveryTime: UqMap;
 	ProductEmbargo: UqMap;
+	ProductStandardSample: UqMap;
+	ProductUserManualFile: UqMap;
 	ProductSearchHistory: UqHistory<ParamProductSearchHistory, ResultProductSearchHistory>;
 	$PiecewiseDetail: UqID<any>;
 	$Piecewise: UqID<any>;

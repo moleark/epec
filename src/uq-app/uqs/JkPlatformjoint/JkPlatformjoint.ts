@@ -1,6 +1,6 @@
-//=== UqApp builder created on Wed Jul 14 2021 11:24:56 GMT+0800 (中国标准时间) ===//
+//=== UqApp builder created on Tue Jul 27 2021 15:50:52 GMT+0800 (中国标准时间) ===//
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { IDXValue, Uq, UqTuid, UqAction, UqQuery, UqMap, UqHistory, UqPending, UqID } from "tonva-react";
+import { IDXValue, Uq, UqTuid, UqAction, UqBook, UqQuery, UqMap, UqHistory, UqPending, UqID } from "tonva-react";
 
 
 //===============================
@@ -228,6 +228,29 @@ export interface ParamAddPlatformCustomerAuditPending {
 export interface ResultAddPlatformCustomerAuditPending {
 }
 
+export interface ParamSaveCancelOrder {
+	pendingid: number;
+	platform: number;
+	order: number;
+	reason: string;
+	content: string;
+	confirmStatus: number;
+	refuseReason: string;
+}
+export interface ResultSaveCancelOrder {
+}
+
+export interface ParamSaveInvoiceRequest {
+	pendingid: number;
+	platform: number;
+	invoiceRequestId: string;
+	invoiceStatus: number;
+	cancelReason: string;
+	content: string;
+}
+export interface ResultSaveInvoiceRequest {
+}
+
 export interface Param$poked {
 }
 export interface Return$pokedRet {
@@ -370,6 +393,82 @@ export interface ResultSearchEpecOrganization {
 	$page: ReturnSearchEpecOrganization$page[];
 }
 
+export interface ParamGetOrderIdByNo {
+	orderNo: string;
+}
+export interface ReturnGetOrderIdByNoRet {
+	orderId: number;
+}
+export interface ResultGetOrderIdByNo {
+	ret: ReturnGetOrderIdByNoRet[];
+}
+
+export interface ParamSearchInvoiceRequestPending {
+	invoiceRequestId: number;
+}
+export interface ReturnSearchInvoiceRequestPendingRet {
+	id: number;
+	platform: number;
+	invoiceRequestId: string;
+	content: string;
+	createtime: any;
+}
+export interface ResultSearchInvoiceRequestPending {
+	ret: ReturnSearchInvoiceRequestPendingRet[];
+}
+
+export interface ParamSearchCancelOrderPending {
+	orderId: number;
+}
+export interface ReturnSearchCancelOrderPendingRet {
+	id: number;
+	platform: number;
+	order: number;
+	reason: string;
+	content: string;
+	createtime: any;
+}
+export interface ResultSearchCancelOrderPending {
+	ret: ReturnSearchCancelOrderPendingRet[];
+}
+
+export interface ParamSearchInvoiceApplys {
+}
+export interface ReturnSearchInvoiceApplys$page {
+	id: number;
+	platform: number;
+	invoiceRequestId: string;
+	content: string;
+	createtime: any;
+}
+export interface ResultSearchInvoiceApplys {
+	$page: ReturnSearchInvoiceApplys$page[];
+}
+
+export interface ParamSearchCancelOrderApplys {
+}
+export interface ReturnSearchCancelOrderApplys$page {
+	id: number;
+	platform: number;
+	order: number;
+	reason: string;
+	content: string;
+	createtime: any;
+}
+export interface ResultSearchCancelOrderApplys {
+	$page: ReturnSearchCancelOrderApplys$page[];
+}
+
+export interface ParamOrderState {
+}
+export interface ReturnOrderState$page {
+	Order: number;
+	state: number;
+}
+export interface ResultOrderState {
+	$page: ReturnOrderState$page[];
+}
+
 export interface ParamPlatformCustomerAuditRefuseHistory {
 	platformCustomer: number;
 	reason: string;
@@ -396,6 +495,46 @@ export interface ReturnPlatformCustomerAuditHistory$page {
 }
 export interface ResultPlatformCustomerAuditHistory {
 	$page: ReturnPlatformCustomerAuditHistory$page[];
+}
+
+export interface ParamInvoiceRequestHistory {
+	platform: number;
+	invoiceRequestId: string;
+	invoiceStatus: number;
+	cancelReason: string;
+	content: string;
+}
+export interface ReturnInvoiceRequestHistory$page {
+	date: any;
+	platform: number;
+	invoiceRequestId: string;
+	invoiceStatus: number;
+	cancelReason: string;
+	content: string;
+}
+export interface ResultInvoiceRequestHistory {
+	$page: ReturnInvoiceRequestHistory$page[];
+}
+
+export interface ParamCancelOrderHistory {
+	platform: number;
+	order: number;
+	reason: string;
+	confirmStatus: number;
+	refuseReason: string;
+	content: string;
+}
+export interface ReturnCancelOrderHistory$page {
+	date: any;
+	platform: number;
+	order: number;
+	reason: string;
+	confirmStatus: number;
+	refuseReason: string;
+	content: string;
+}
+export interface ResultCancelOrderHistory {
+	$page: ReturnCancelOrderHistory$page[];
 }
 
 export interface $PiecewiseDetail {
@@ -448,6 +587,9 @@ export interface UqExt extends Uq {
 	ApplyAuditPlatformCustomer: UqAction<ParamApplyAuditPlatformCustomer, ResultApplyAuditPlatformCustomer>;
 	AuditPlatformCustomer: UqAction<ParamAuditPlatformCustomer, ResultAuditPlatformCustomer>;
 	AddPlatformCustomerAuditPending: UqAction<ParamAddPlatformCustomerAuditPending, ResultAddPlatformCustomerAuditPending>;
+	SaveCancelOrder: UqAction<ParamSaveCancelOrder, ResultSaveCancelOrder>;
+	SaveInvoiceRequest: UqAction<ParamSaveInvoiceRequest, ResultSaveInvoiceRequest>;
+	OrderState: UqBook<ParamOrderState, ResultOrderState>;
 	$poked: UqQuery<Param$poked, Result$poked>;
 	GetplatformCustomerID: UqQuery<ParamGetplatformCustomerID, ResultGetplatformCustomerID>;
 	GetPlatformCustomerAuditOrderPending: UqQuery<ParamGetPlatformCustomerAuditOrderPending, ResultGetPlatformCustomerAuditOrderPending>;
@@ -460,6 +602,11 @@ export interface UqExt extends Uq {
 	SearchEpecUser: UqQuery<ParamSearchEpecUser, ResultSearchEpecUser>;
 	SearchNeoTridentUser: UqQuery<ParamSearchNeoTridentUser, ResultSearchNeoTridentUser>;
 	SearchEpecOrganization: UqQuery<ParamSearchEpecOrganization, ResultSearchEpecOrganization>;
+	GetOrderIdByNo: UqQuery<ParamGetOrderIdByNo, ResultGetOrderIdByNo>;
+	SearchInvoiceRequestPending: UqQuery<ParamSearchInvoiceRequestPending, ResultSearchInvoiceRequestPending>;
+	SearchCancelOrderPending: UqQuery<ParamSearchCancelOrderPending, ResultSearchCancelOrderPending>;
+	SearchInvoiceApplys: UqQuery<ParamSearchInvoiceApplys, ResultSearchInvoiceApplys>;
+	SearchCancelOrderApplys: UqQuery<ParamSearchCancelOrderApplys, ResultSearchCancelOrderApplys>;
 	AccessToken: UqMap;
 	JDCityMapping: UqMap;
 	JDProvinceMapping: UqMap;
@@ -477,11 +624,17 @@ export interface UqExt extends Uq {
 	OrderIds: UqMap;
 	TransCompanyMapping: UqMap;
 	EpecOrganization: UqMap;
+	PlatformInformation: UqMap;
+	AccessTokenOut: UqMap;
 	PlatformCustomerAuditRefuseHistory: UqHistory<ParamPlatformCustomerAuditRefuseHistory, ResultPlatformCustomerAuditRefuseHistory>;
 	PlatformCustomerAuditHistory: UqHistory<ParamPlatformCustomerAuditHistory, ResultPlatformCustomerAuditHistory>;
+	InvoiceRequestHistory: UqHistory<ParamInvoiceRequestHistory, ResultInvoiceRequestHistory>;
+	CancelOrderHistory: UqHistory<ParamCancelOrderHistory, ResultCancelOrderHistory>;
 	PlatformCustomerAuditOrderPending: UqPending<any, any>;
 	PlatformCustomerAuditPending: UqPending<any, any>;
 	EpecLoginPending: UqPending<any, any>;
+	CancelOrderPending: UqPending<any, any>;
+	InvoiceRequestPending: UqPending<any, any>;
 	$PiecewiseDetail: UqID<any>;
 	$Piecewise: UqID<any>;
 }

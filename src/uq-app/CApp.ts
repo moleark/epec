@@ -9,6 +9,8 @@ import { setUI } from "./uqs";
 
 import { CUser } from "./user";
 import { CEpec } from './user/Epec/CEpec';
+import { COrder } from './order/COrder';
+import { CProduct } from './product/CProduct';
 
 const gaps = [10, 3, 3, 3, 3, 3, 5, 5, 5, 5, 5, 5, 5, 5, 10, 10, 10, 10, 15, 15, 15, 30, 30, 60];
 
@@ -20,6 +22,8 @@ export class CApp extends CUqApp {
 
     cUser: CUser;
     cEpec: CEpec;
+    cOrder: COrder;
+    cProduct: CProduct;
 
     protected async internalStart(isUserLogin: boolean) {
         this.setRes(res);
@@ -30,6 +34,8 @@ export class CApp extends CUqApp {
         this.cUI = this.newC(CTester) as CTester;
         this.cEpec = this.newC(CEpec);
         this.cUser = this.newC(CUser);
+        this.cOrder = this.newC(COrder);
+        this.cProduct = this.newC(CProduct);
         this.cHome.load();
 
         await this.cUser.getDefaultUsers();

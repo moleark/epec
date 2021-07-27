@@ -1,5 +1,6 @@
 //=== UqApp builder created on Tue Jan 12 2021 23:14:51 GMT-0500 (GMT-05:00) ===//
 import { AppConfig, DevConfig } from "tonva-react";
+import { tvs } from "./tvs";
 
 const bz: DevConfig = {
 	name: 'bizdev',
@@ -31,6 +32,16 @@ export const appConfig: AppConfig = {
 		},
 		{
 			dev: jk,
+			name: 'order',
+			version: '0.1.0',
+		},
+		{
+			dev: jk,
+			name: 'product',
+			version: '0.1.0',
+		},
+		{
+			dev: jk,
 			name: 'webuser',
 			version: '0.1.0',
 		},
@@ -41,7 +52,7 @@ export const appConfig: AppConfig = {
 		},
 	],
 	noUnit: true,
-	tvs: {},
+	tvs: tvs || {},
 	oem: undefined,
 	htmlTitle: '第三方客户管理系统',
 };
