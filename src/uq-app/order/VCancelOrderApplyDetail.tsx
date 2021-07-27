@@ -51,11 +51,12 @@ export class VCancelOrderApply extends VCommonA {
             // "platform": <>{tv(platform, (v) => v?.name)}</>,
         };
         let arr: any[] = Object.keys(STDCancelOrderInfo).map((el: any) => {
-            let value: any = (stdBody[el] !== undefined || stdBody[el] !== "") ? stdBody[el] : obj[el];
+            let values: any = (stdBody[el] !== undefined || stdBody[el] !== "") ? stdBody[el] : obj[el];
+            let value: any = values;
             if (el === "orderNo") {
-                value = <LMR onClick={() => { openOrderDetail(obj[el]) }}
+                value = <LMR onClick={() => { openOrderDetail(values) }}
                     right={<FA name="chevron-right" className="align-self-center" />} >
-                    {value}
+                    {values}
                 </LMR>;
             };
             return { title: STDCancelOrderInfo[el], value: value };
